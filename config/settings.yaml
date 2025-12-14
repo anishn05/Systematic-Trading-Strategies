@@ -22,8 +22,6 @@ backtest:
   allow_partial_fills: true
 
 costs:
-  commission_per_trade: 2.0       # GBP
-  slippage_bps: 1.0               # basis points
   transaction_cost_bps: 0.5
 
 fees:
@@ -32,7 +30,7 @@ fees:
     rate: 0.0005             # 5 bps per trade
     min_commission: 1.0
   slippage:
-    model: volume_linear     # fixed | volume_linear
+    model: fixed     # fixed | volume_linear
     fixed_bps: 1.0
     impact_coefficient: 0.1
 
