@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Optional
 
 
-class MarketDataLoader:
+class DataLoader:
     """
     Responsible for:
     - Loading raw market data
@@ -12,8 +12,9 @@ class MarketDataLoader:
     - Returning standardized DataFrames
     """
 
-    def __init__(self, data_dir: str):
+    def __init__(self, data_dir: str, frequency):
         self.data_dir = Path(data_dir)
+        self.frequency = frequency
 
     def load_csv(
         self,
@@ -34,8 +35,8 @@ class MarketDataLoader:
         df = pd.read_csv(file_path)
 
         if parse_dates:
-            df["timestamp"] = pd.to_datetime(df["timestamp"])
-
+            df["Date"] = pd.to_datetime(df["Date"])
+        
         return self._clean_data(df)
 
     def _clean_data(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -46,16 +47,16 @@ class MarketDataLoader:
         - Handle missing values
         """
 
-        df = df.sort_values("timestamp")
-        df = df.drop_duplicates(subset="timestamp")
+        df = df.sort_values("Date")
+        df = df.drop_duplicates(subset="Date")
 
-        df = df.set_index("timestamp")
+        df = df.set_index("Date")
 
         # Forward-fill prices, zero-fill volume
-        price_cols = ["open", "high", "low", "close"]
+        price_cols = ["Open", "High", "Low", "Close"]
         df[price_cols] = df[price_cols].ffill()
-        if "volume" in df.columns:
-            df["volume"] = df["volume"].fillna(0)
+        if "Volume" in df.columns:
+            df["Volume"] = df["Volume"].fillna(0)
 
         return df
 

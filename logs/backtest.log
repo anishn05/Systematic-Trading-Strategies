@@ -1,0 +1,64 @@
+2025-12-13 23:52:08,540 | INFO | Starting algorithmic trading system demo run
+2025-12-13 23:54:06,934 | INFO | Starting algorithmic trading system demo run
+2025-12-13 23:55:55,875 | INFO | Starting algorithmic trading system demo run
+2025-12-13 23:58:08,003 | INFO | Starting algorithmic trading system demo run
+2025-12-13 23:58:51,295 | INFO | Starting algorithmic trading system demo run
+2025-12-13 23:59:16,644 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:00:09,191 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:01:51,114 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:01:51,156 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:03:39,749 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:03:39,785 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:04:11,750 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:04:11,834 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:05:25,591 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:05:25,633 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:05:52,915 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:05:52,978 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:14:49,378 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:14:49,433 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:17:28,579 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:17:28,630 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:18:39,228 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:18:39,254 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:21:54,859 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:21:54,904 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:38:38,586 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:38:38,609 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:44:44,848 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:44:44,861 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:45:46,874 | INFO | Starting algorithmic trading system demo run
+2025-12-14 00:45:46,906 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 00:46:39,125 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:16:18,365 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:16:18,403 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:17:50,473 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:17:50,486 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:26:06,546 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:26:06,597 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:28:33,691 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:28:33,715 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:29:56,060 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:29:56,086 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:30:45,551 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:30:45,570 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:32:07,719 | INFO | Starting algorithmic trading system demo run
+2025-12-14 19:32:07,743 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 19:32:07,926 | INFO | Backtest completed
+2025-12-14 20:03:59,590 | INFO | Starting algorithmic trading system demo run
+2025-12-14 20:03:59,618 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 20:03:59,796 | INFO | Backtest completed
+2025-12-14 20:10:03,991 | INFO | Starting algorithmic trading system demo run
+2025-12-14 20:10:04,016 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 20:10:04,197 | INFO | Backtest completed
+2025-12-14 20:10:04,215 | INFO | Results saved to reports/performance/
+2025-12-14 20:13:26,592 | INFO | Starting algorithmic trading system demo run
+2025-12-14 20:13:26,623 | INFO | Loaded 1509 rows of data for SPY
+2025-12-14 20:23:03,408 | INFO | Starting algorithmic trading system demo run
+2025-12-14 20:23:03,437 | INFO | Loaded 1576 rows of data for AAPL
+2025-12-14 20:23:03,599 | INFO | Backtest completed
+2025-12-14 20:23:03,616 | INFO | Results saved to reports/performance/
+2025-12-14 20:24:50,154 | INFO | Starting algorithmic trading system demo run
+2025-12-14 20:24:50,185 | INFO | Loaded 1576 rows of data for AAPL
+2025-12-14 20:24:50,365 | INFO | Backtest completed
+2025-12-14 20:24:50,382 | INFO | Results saved to reports/performance/

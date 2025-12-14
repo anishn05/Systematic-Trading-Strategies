@@ -1,0 +1,42 @@
+capital:
+  initial_capital: 10000
+  base_currency: GBP
+  leverage: 2.0
+  max_gross_exposure: 2.5
+  max_position_pct: 0.25
+
+execution:
+  fill_model: intraday_vwap  # close | vwap | next_bar_open
+  max_participation_rate: 0.1  # 10% of bar volume
+  allow_partial_fills: true
+
+risk:
+  max_daily_loss_pct: 0.03
+  max_drawdown_pct: 0.20
+  stop_trading_on_breach: true
+
+backtest:
+  frequency: 1D           # daily | intraday
+  timezone: UTC
+  mark_to_market: true
+  allow_partial_fills: true
+
+costs:
+  commission_per_trade: 2.0       # GBP
+  slippage_bps: 1.0               # basis points
+  transaction_cost_bps: 0.5
+
+fees:
+  commission:
+    type: proportional      # proportional | per_contract
+    rate: 0.0005             # 5 bps per trade
+    min_commission: 1.0
+  slippage:
+    model: volume_linear     # fixed | volume_linear
+    fixed_bps: 1.0
+    impact_coefficient: 0.1
+
+strategy:
+  sma:
+    short_window: 20
+    long_window: 50
