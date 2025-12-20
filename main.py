@@ -7,6 +7,7 @@ from data.data_loader import DataLoader
 from src.strategies.sma_strategy import SMAStrategy
 from src.backtest.backtester import Backtester
 from src.analytics.performance import PerformanceAnalyzer
+from src.execution.execution import Order, Fill, ExecutionModel
 
 # ---------------------------------------------------
 # Setup logging
@@ -30,6 +31,14 @@ def load_config(config_path: str) -> dict:
 #MAIN
 def main():
 
+    logger.info("Starting algorithmic trading system run")
+    # -------------------------------
+    # 1. Load config
+    # -------------------------------
+    config = load_config("config/settings.yaml")
+    initial_capital = config["capital"]["initial_capital"]
+    leverage = config["capital"]["leverage"]
+
     #CHANGE INTPUTS HERE!!
     symbol = "AAPL"
     sma_params = config["strategy"]["sma"]
@@ -40,13 +49,6 @@ def main():
     )
 
 
-    logger.info("Starting algorithmic trading system run")
-    # -------------------------------
-    # 1. Load config
-    # -------------------------------
-    config = load_config("config/settings.yaml")
-    initial_capital = config["capital"]["initial_capital"]
-    leverage = config["capital"]["leverage"]
     # -------------------------------
     # 2. Load market data
     # -------------------------------
@@ -110,8 +112,11 @@ def main():
     output_path.mkdir(parents=True, exist_ok=True)
     results["equity_curve"].to_csv(output_path / f"equity_curve_{symbol}.csv")
     results["trades"].to_csv(output_path / f"trades_{symbol}.csv")
-    pd.Series(summary).to_csv(output_path / "summary_metrics.csv")
+    pd.Series(summary).to_csv(output_path / f"summary_metrics_{symbol}.csv")
     logger.info("Results saved to reports/performance/")
 
 if __name__ == "__main__":
     main()
+
+
+

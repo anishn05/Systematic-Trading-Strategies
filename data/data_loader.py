@@ -57,7 +57,6 @@ class DataLoader:
         df[price_cols] = df[price_cols].ffill()
         if "Volume" in df.columns:
             df["Volume"] = df["Volume"].fillna(0)
-
         return df
 
     def resample(

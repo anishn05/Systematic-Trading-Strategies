@@ -46,5 +46,5 @@ class SMAStrategy(Strategy):
 
         # 🚨 Remove lookahead bias
         signals["signal"] = signals["signal"].shift(1)
-
-        return signals
+        final_df = signals.dropna()    #dropping NaNs from SMA_short, SMA_long and signals columns
+        return final_df
