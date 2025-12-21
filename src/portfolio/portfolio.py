@@ -36,23 +36,15 @@ class Position:
 
 
 class Portfolio:
-    """
-    Multi-asset institutional portfolio system.
-
-    Tracks:
-      • cash
-      • margin requirements
-      • leverage limits
-      • per-asset exposure
-      • realized + unrealized PnL
-      • trade logs
-    """
+    
     def __init__(self, initial_capital, leverage=2.0, maintenance_margin=0.5):
 
         self.initial_capital = initial_capital
         self.cash = initial_capital
         self.positions: dict[str, Position] = {}
         self.trade_log: list[dict] = []
+
+        self.last_prices = {}   # stores latest market prices
 
         self.leverage = leverage
         self.maintenance_margin = maintenance_margin
@@ -111,6 +103,84 @@ class Portfolio:
 
     def available_buying_power(self):
         return self.initial_capital * self.leverage - abs(self.net_exposure())
+
+
+    def update_prices(self, price_map):
+        """
+        price_map: dict {instrument: price}
+        Called every tick/bar.
+        """
+        for inst, px in price_map.items():
+            self.last_prices[inst] = px
+
+    def get_last_price(self, instrument:str):
+        """
+        Return latest known price for instrument.
+        Raises if no price exists.
+        """
+        try:
+            return self.last_prices[instrument]
+        except KeyError:
+            raise ValueError(f"No price available for {instrument}")
+        
+    def current_equity(self):
+        """
+        Cash + MTM all positions using latest prices
+        """
+        total = self.cash
+        for sym, pos in self.positions.items():
+            if sym in self.last_prices:
+                total += pos.quantity * self.last_prices[sym]
+        return total
+    
+    def market_value(self, symbol):
+        """
+        Current notional exposure in dollars for one instrument
+        """
+        if symbol not in self.positions:
+            return 0.0
+        if symbol not in self.last_prices:
+            return 0.0
+
+        pos = self.positions[symbol]
+        price = self.last_prices[symbol]
+
+        return pos.quantity * price
+
+    def market_value_after_order(self, order, price):
+        """
+        Project notional exposure after order is filled
+        """
+        current = self.market_value(order.instrument)
+
+        sign = 1 if order.side == "BUY" else -1
+        projected = current + price * order.quantity * sign
+
+        return projected
+
+    def leverage_after_order(self, order, price):
+        """
+        Calculate projected portfolio leverage
+        """
+        equity = self.current_equity()
+        if equity == 0:
+            return 999  # block trading
+
+        # total exposure = sum absolute notional after order
+        exposures = []
+
+        # existing positions
+        for sym in self.positions:
+            exposures.append(abs(self.market_value(sym)))
+
+        # add projected order exposure
+        exposures.append(abs(
+            self.market_value_after_order(order, price)
+        ))
+
+        total_exposure = sum(exposures)
+        return total_exposure / equity
+
 
 
     # ============================

@@ -11,9 +11,12 @@ execution:
   allow_partial_fills: true
 
 risk:
-  max_daily_loss_pct: 0.03
-  max_drawdown_pct: 0.20
-  stop_trading_on_breach: true
+  max_leverage: 3.0
+  max_position_notional: 0.20
+  max_daily_loss: 0.05
+  max_drawdown: 0.20
+  min_cash_buffer: 0.02
+  allow_shorting: true
 
 backtest:
   frequency: 1D           # daily | intraday
