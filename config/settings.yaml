@@ -10,6 +10,13 @@ execution:
   max_participation_rate: 0.1  # 10% of bar volume
   allow_partial_fills: true
 
+data_validation:
+   required_columns: ["Open","High","Low","Close"]
+   volume_columns : ["Volume"]
+   max_price_jump: 0.20
+   forward_fill_limit: 5
+   strict: false
+
 risk:
   max_leverage: 3.0
   max_position_notional: 0.20
